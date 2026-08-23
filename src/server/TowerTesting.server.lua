@@ -1,28 +1,33 @@
-local tower = workspace.Tower
+local towers = workspace.Towers
 local mobs = workspace.Mobs
 
-local function FindNearestTarget()
+local function FindNearestTarget(tower)
 	local maxDistance = 50
 	local nearestTarget = nil
 
-	for i, target in ipairs(mobs:GetChildren()) do
-		local distance = (target.HumanoidRootPart:GetPivot().Position - tower:GetPivot().Position).Magnitude
-		print(target.Name, distance)
-		if distance < maxDistance then
-			print(target.Name, "is the nearest target found so far")
-			nearestTarget = target
-			maxDistance = distance
+	for _, target in ipairs(mobs:GetChildren()) do
+		local humanoid = target:FindFirstChild("Humanoid")
+		local rootPart = target:FindFirstChild("HumanoidRootPart")
+
+		if humanoid and rootPart and humanoid.Health > 0 then
+			local distance = (rootPart.Position - tower:GetPivot().Position).Magnitude
+
+			if distance < maxDistance then
+				nearestTarget = target
+				maxDistance = distance
+			end
 		end
 	end
 
 	return nearestTarget
 end
 
-while true do
-	local target = FindNearestTarget()
-	if target then
-		target.Humanoid:TakeDamage(25)
-	end
+while task.wait(1) do
+	for _, tower in ipairs(towers:GetChildren()) do
+		local target = FindNearestTarget(tower)
 
-	task.wait(1)
+		if target then
+			target.Humanoid:TakeDamage(25)
+		end
+	end
 end

@@ -37,6 +37,11 @@ function mob.Spawn(name, quantity, map)
 			task.spawn(function()
 				mob.Move(newMob, map)
 			end)
+
+			newMob.Humanoid.Died:Connect(function()
+				task.wait(0.5)
+				newMob:Destroy()
+			end)
 		end
 	else
 		warn("Requested mob does not exist:", name)

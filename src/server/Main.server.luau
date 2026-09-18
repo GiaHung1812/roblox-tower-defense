@@ -1,4 +1,5 @@
 local mob = require(script.Parent.Modules.Mob)
+local tower = require(script.Parent.Modules.Tower)
 local map = workspace.Grassland
 
 for wave = 1, 10 do

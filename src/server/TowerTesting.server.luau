@@ -1,4 +1,4 @@
-local towers = workspace.Towers
+local towers = workspace.Tower
 local mobs = workspace.Mobs
 
 local function FindNearestTarget(tower)

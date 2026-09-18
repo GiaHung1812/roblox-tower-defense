@@ -1,0 +1,35 @@
+<roblox version="4">
+  <Item class="ScreenGui" referent="RBX0">
+    <Properties>
+      <bool name="IgnoreGuiInset">false</bool>
+      <bool name="ResetOnSpawn">false</bool>
+      <string name="Name">GameGui</string>
+    </Properties>
+    <Item class="TextButton" referent="RBX1">
+      <Properties>
+        <bool name="AutoButtonColor">true</bool>
+        <Color3 name="BackgroundColor3">
+          <R>1</R>
+          <G>1</G>
+          <B>1</B>
+        </Color3>
+        <float name="BackgroundTransparency">0</float>
+        <int name="BorderSizePixel">0</int>
+        <string name="Name">Spawn</string>
+        <UDim2 name="Position">
+          <XS>0.5</XS><XO>-100</XO>
+          <YS>1</YS><YO>-50</YO>
+        </UDim2>
+        <UDim2 name="Size">
+          <XS>0</XS><XO>200</XO>
+          <YS>0</YS><YO>55</YO>
+        </UDim2>
+        <string name="Text">Slinger</string>
+        <Color3 name="TextColor3">
+          <R>0</R><G>0</G><B>0</B>
+        </Color3>
+        <float name="TextSize">22</float>
+      </Properties>
+    </Item>
+  </Item>
+</roblox>

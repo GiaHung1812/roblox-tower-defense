@@ -46,7 +46,7 @@ local function AddPlaceholderTower(name)
 		towerToSpawn.Parent = towerFolder
 		towerToSpawn.PrimaryPart = towerToSpawn.PrimaryPart or towerToSpawn:FindFirstChildWhichIsA("BasePart", true)
 
-		for i, object in ipairs(towerToSpawn:GetDescendants()) do
+		for _, object in ipairs(towerToSpawn:GetDescendants()) do
 			if object:IsA("BasePart") then
 				object.CollisionGroup = "Tower"
 				object.Material = Enum.Material.ForceField
@@ -56,7 +56,7 @@ local function AddPlaceholderTower(name)
 end
 
 local function ColorPlaceHolderTower(color)
-	for i, object in ipairs(towerToSpawn:GetDescendants()) do
+	for _, object in ipairs(towerToSpawn:GetDescendants()) do
 		if object:IsA("BasePart") then
 			object.Color = color
 		end

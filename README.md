@@ -88,5 +88,3 @@ Enemy and tower models must include the instances expected by gameplay code, inc
 - Enemy and tower domain logic: [`src/server/Modules`](src/server/Modules)
 - Client placement flow: [`src/client/GameController.client.luau`](src/client/GameController.client.luau)
 - Tower-spawn event: `Shared/Events/SpawnTower`
-
-Refer to the [Rojo documentation](https://rojo.space/docs) for additional details on syncing and building Roblox places.

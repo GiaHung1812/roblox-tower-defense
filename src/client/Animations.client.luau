@@ -1,3 +1,8 @@
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local events = ReplicatedStorage:WaitForChild("Shared"):WaitForChild("Events")
+local animateTowerEvent = events:WaitForChild("AnimateTower")
+
 local function setAnimation(object, animName)
 	local humanoid = object:WaitForChild("Humanoid")
 	local animationsFolder = object:WaitForChild("Animations")
@@ -27,4 +32,8 @@ end)
 
 workspace.Towers.ChildAdded:Connect(function(object)
 	playAnimation(object, "Idle")
+end)
+
+animateTowerEvent.OnClientEvent:Connect(function(tower, animName)
+	playAnimation(tower, animName)
 end)

@@ -39,11 +39,10 @@ local function RemovePlaceholderTowe()
 end
 local function AddPlaceholderTower(name)
 	local towerExists = towers:FindFirstChild(name)
-	local towerFolder = workspace:FindFirstChild("Towers")
-	if towerExists and towerFolder then
+	if towerExists then
 		RemovePlaceholderTowe()
 		towerToSpawn = towerExists:Clone()
-		towerToSpawn.Parent = towerFolder
+		towerToSpawn.Parent = workspace
 		towerToSpawn.PrimaryPart = towerToSpawn.PrimaryPart or towerToSpawn:FindFirstChildWhichIsA("BasePart", true)
 
 		for _, object in ipairs(towerToSpawn:GetDescendants()) do

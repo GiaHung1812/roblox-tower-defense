@@ -1,6 +1,20 @@
+local ServerStorage = game:GetService("ServerStorage")
+
+local bindables = ServerStorage:WaitForChild("Bindables")
+local gameOverEvent = bindables:WaitForChild("GameOver")
+
+local base = require(script.Parent.Modules.Base)
 local mob = require(script.Parent.Modules.Mob)
 local tower = require(script.Parent.Modules.Tower)
 local map = workspace.Grassland
+
+local gameOver = false
+
+base.Setup(workspace:WaitForChild("Base"), 500)
+
+gameOverEvent.Event:Connect(function()
+	gameOver = true
+end)
 
 for wave = 1, 10 do
 	print("WAVE STARTING", wave)
@@ -37,7 +51,11 @@ for wave = 1, 10 do
 
 	repeat
 		task.wait(1)
-	until #workspace.Mobs:GetChildren() == 0
+	until #workspace.Mobs:GetChildren() == 0 or gameOver
+
+	if gameOver then
+		print("GAME OVER")
+	end
 
 	print("WAVE ENDED")
 	task.wait(1)

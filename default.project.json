@@ -26,6 +26,11 @@
 
     "StarterGui": {
       "$path": "src/ui"
+    },
+
+    "ServerStorage": {
+        "$path": "src/storage"
     }
   }
 }
+

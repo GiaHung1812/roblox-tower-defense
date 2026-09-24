@@ -1,5 +1,9 @@
 local PhysicsService = game:GetService("PhysicsService")
 local ServerStorage = game:GetService("ServerStorage")
+local ServerStorage = game:GetService("ServerStorage")
+
+local bindables = ServerStorage:WaitForChild("Bindables")
+local updateBaseHealthEvent = bindables:WaitForChild("UpdateBaseHealth")
 local mob = {}
 
 function mob.Move(mob, map)
@@ -16,6 +20,7 @@ function mob.Move(mob, map)
 	end
 
 	mob:Destroy()
+	updateBaseHealthEvent:Fire(humanoid.Health)
 end
 
 function mob.Spawn(name, quantity, map)
